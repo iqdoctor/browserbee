@@ -2,10 +2,11 @@ import { AnthropicProvider } from '../models/providers/anthropic';
 import { GeminiProvider } from '../models/providers/gemini';
 import { OllamaProvider, OllamaProviderOptions } from '../models/providers/ollama';
 import { OpenAIProvider } from '../models/providers/openai';
+import { OpenAIResponseProvider } from '../models/providers/openai-responses';
 import { OpenAICompatibleProvider } from '../models/providers/openai-compatible';
 
 export interface ProviderConfig {
-  provider: 'anthropic' | 'openai' | 'gemini' | 'ollama' | 'openai-compatible';
+  provider: 'anthropic' | 'openai' | 'gemini' | 'ollama' | 'openai-compatible' | 'openai-responses';
   apiKey: string;
   apiModelId?: string;
   baseUrl?: string;
@@ -35,6 +36,8 @@ export class ConfigManager {
       openaiApiKey: '',
       openaiModelId: 'gpt-4o',
       openaiBaseUrl: '',
+      openaiResponsesApiKey: '',
+      openaiResponsesBaseUrl: '',
       geminiApiKey: '',
       geminiModelId: 'gemini-1.5-pro',
       geminiBaseUrl: '',
@@ -65,6 +68,12 @@ export class ConfigManager {
           apiKey: result.openaiApiKey,
           apiModelId: result.openaiModelId,
           baseUrl: result.openaiBaseUrl,
+        };
+      case 'openai-responses':
+        return {
+          provider: 'openai-responses',
+          apiKey: result.openaiResponsesApiKey,
+          baseUrl: result.openaiResponsesBaseUrl,
         };
       case 'gemini':
         return {
@@ -105,6 +114,7 @@ export class ConfigManager {
     const result = await chrome.storage.sync.get({
       anthropicApiKey: '',
       openaiApiKey: '',
+      openaiResponsesApiKey: '',
       geminiApiKey: '',
       ollamaApiKey: '',
       openaiCompatibleApiKey: '',
@@ -114,6 +124,7 @@ export class ConfigManager {
     const providers = [];
     if (result.anthropicApiKey) providers.push('anthropic');
     if (result.openaiApiKey) providers.push('openai');
+    if (result.openaiResponsesApiKey) providers.push('openai-responses');
     if (result.geminiApiKey) providers.push('gemini');
     
     // For Ollama, check if the base URL is configured AND at least one model exists

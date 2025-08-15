@@ -57,6 +57,10 @@ export function Options() {
   const [openaiApiKey, setOpenaiApiKey] = useState('');
   const [openaiBaseUrl, setOpenaiBaseUrl] = useState('');
   
+  // OpenAI Responses settings
+  const [openaiResponsesApiKey, setOpenaiResponsesApiKey] = useState('');
+  const [openaiResponsesBaseUrl, setOpenaiResponsesBaseUrl] = useState('');
+  
   // Gemini settings
   const [geminiApiKey, setGeminiApiKey] = useState('');
   const [geminiBaseUrl, setGeminiBaseUrl] = useState('');
@@ -97,6 +101,8 @@ export function Options() {
       openaiApiKey: '',
       openaiModelId: openaiDefaultModelId,
       openaiBaseUrl: '',
+      openaiResponsesApiKey: '',
+      openaiResponsesBaseUrl: '',
       geminiApiKey: '',
       geminiModelId: geminiDefaultModelId,
       geminiBaseUrl: '',
@@ -146,6 +152,8 @@ export function Options() {
       openaiApiKey,
       openaiModelId,
       openaiBaseUrl,
+      openaiResponsesApiKey,
+      openaiResponsesBaseUrl,
       geminiApiKey,
       geminiModelId,
       geminiBaseUrl,
@@ -242,6 +250,11 @@ export function Options() {
       setOpenaiApiKey={setOpenaiApiKey}
       openaiBaseUrl={openaiBaseUrl}
       setOpenaiBaseUrl={setOpenaiBaseUrl}
+      // OpenAI Responses settings
+      openaiResponsesApiKey={openaiResponsesApiKey}
+      setOpenaiResponsesApiKey={setOpenaiResponsesApiKey}
+      openaiResponsesBaseUrl={openaiResponsesBaseUrl}
+      setOpenaiResponsesBaseUrl={setOpenaiResponsesBaseUrl}
       // Gemini settings
       geminiApiKey={geminiApiKey}
       setGeminiApiKey={setGeminiApiKey}

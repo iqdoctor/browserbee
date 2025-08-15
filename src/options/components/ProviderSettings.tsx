@@ -6,6 +6,7 @@ import { OllamaModel } from './OllamaModelList';
 import { OllamaSettings } from './OllamaSettings';
 import { OpenAICompatibleSettings } from './OpenAICompatibleSettings';
 import { OpenAISettings } from './OpenAISettings';
+import { OpenAIResponsesSettings } from './OpenAIResponsesSettings';
 
 interface ProviderSettingsProps {
   provider: string;
@@ -22,6 +23,12 @@ interface ProviderSettingsProps {
   setOpenaiApiKey: (key: string) => void;
   openaiBaseUrl: string;
   setOpenaiBaseUrl: (url: string) => void;
+  
+  // OpenAI Responses settings
+  openaiResponsesApiKey: string;
+  setOpenaiResponsesApiKey: (key: string) => void;
+  openaiResponsesBaseUrl: string;
+  setOpenaiResponsesBaseUrl: (url: string) => void;
   
   // Gemini settings
   geminiApiKey: string;
@@ -74,6 +81,11 @@ export function ProviderSettings({
   setOpenaiApiKey,
   openaiBaseUrl,
   setOpenaiBaseUrl,
+  // OpenAI Responses
+  openaiResponsesApiKey,
+  setOpenaiResponsesApiKey,
+  openaiResponsesBaseUrl,
+  setOpenaiResponsesBaseUrl,
   // Gemini
   geminiApiKey,
   setGeminiApiKey,
@@ -127,6 +139,15 @@ export function ProviderSettings({
           setOpenaiApiKey={setOpenaiApiKey}
           openaiBaseUrl={openaiBaseUrl}
           setOpenaiBaseUrl={setOpenaiBaseUrl}
+        />
+      )}
+      
+      {provider === 'openai-responses' && (
+        <OpenAIResponsesSettings 
+          openaiResponsesApiKey={openaiResponsesApiKey}
+          setOpenaiResponsesApiKey={setOpenaiResponsesApiKey}
+          openaiResponsesBaseUrl={openaiResponsesBaseUrl}
+          setOpenaiResponsesBaseUrl={setOpenaiResponsesBaseUrl}
         />
       )}
       

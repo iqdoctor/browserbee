@@ -24,6 +24,12 @@ interface LLMProviderConfigProps {
   openaiBaseUrl: string;
   setOpenaiBaseUrl: (url: string) => void;
   
+  // OpenAI Responses settings
+  openaiResponsesApiKey: string;
+  setOpenaiResponsesApiKey: (key: string) => void;
+  openaiResponsesBaseUrl: string;
+  setOpenaiResponsesBaseUrl: (url: string) => void;
+  
   // Gemini settings
   geminiApiKey: string;
   setGeminiApiKey: (key: string) => void;
@@ -86,6 +92,12 @@ export function LLMProviderConfig({
   setOpenaiApiKey,
   openaiBaseUrl,
   setOpenaiBaseUrl,
+  
+  // OpenAI Responses settings
+  openaiResponsesApiKey,
+  setOpenaiResponsesApiKey,
+  openaiResponsesBaseUrl,
+  setOpenaiResponsesBaseUrl,
   
   // Gemini settings
   geminiApiKey,
@@ -157,6 +169,11 @@ export function LLMProviderConfig({
           setOpenaiApiKey={setOpenaiApiKey}
           openaiBaseUrl={openaiBaseUrl}
           setOpenaiBaseUrl={setOpenaiBaseUrl}
+          // OpenAI Responses
+          openaiResponsesApiKey={openaiResponsesApiKey}
+          setOpenaiResponsesApiKey={setOpenaiResponsesApiKey}
+          openaiResponsesBaseUrl={openaiResponsesBaseUrl}
+          setOpenaiResponsesBaseUrl={setOpenaiResponsesBaseUrl}
           // Gemini
           geminiApiKey={geminiApiKey}
           setGeminiApiKey={setGeminiApiKey}

@@ -1,16 +1,19 @@
 {
   "name": "browserbee",
-  "description": "Control your browser with natural language",
-  "version": "0.2.0",
+  "description": "Control your browser with natural language and Strato Space Brain Extensions",
+  "version": "0.2.3-strato",
   "type": "module",
   "keywords": [
     "browser-automation",
     "chrome-extension",
     "natural-language",
+    "openai",
+    "openai responses api",
+    "multi-agent system",
     "claude",
     "playwright"
   ],
-  "author": "BrowserBee Contributors",
+  "author": "BrowserBee Contributors and Strato Space core team",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
@@ -18,6 +21,7 @@
   },
   "scripts": {
     "build": "tsc && vite build && node scripts/copy-static.js",
+    "build:opera": "tsc && vite build && node scripts/copy-opera-manifest.js && node scripts/copy-static.js",
     "dev": "node scripts/copy-static.js && tsc && node scripts/dev-helper.js && vite build --watch",
     "dev:serve": "vite",
     "copy-static": "node scripts/copy-static.js",

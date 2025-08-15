@@ -24,6 +24,12 @@ interface VerticalTabsProps {
   openaiBaseUrl: string;
   setOpenaiBaseUrl: (url: string) => void;
   
+  // OpenAI Responses settings
+  openaiResponsesApiKey: string;
+  setOpenaiResponsesApiKey: (key: string) => void;
+  openaiResponsesBaseUrl: string;
+  setOpenaiResponsesBaseUrl: (url: string) => void;
+  
   // Gemini settings
   geminiApiKey: string;
   setGeminiApiKey: (key: string) => void;
@@ -99,6 +105,12 @@ export function VerticalTabs(props: VerticalTabsProps) {
             setOpenaiApiKey={props.setOpenaiApiKey}
             openaiBaseUrl={props.openaiBaseUrl}
             setOpenaiBaseUrl={props.setOpenaiBaseUrl}
+            // OpenAI Responses
+            openaiResponsesApiKey={props.openaiResponsesApiKey}
+            setOpenaiResponsesApiKey={props.setOpenaiResponsesApiKey}
+            openaiResponsesBaseUrl={props.openaiResponsesBaseUrl}
+            setOpenaiResponsesBaseUrl={props.setOpenaiResponsesBaseUrl}
+            // Gemini
             geminiApiKey={props.geminiApiKey}
             setGeminiApiKey={props.setGeminiApiKey}
             geminiBaseUrl={props.geminiBaseUrl}
